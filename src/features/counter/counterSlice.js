@@ -27,8 +27,50 @@ const counterSlice = createSlice({
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
+// increment()
+// {
+    // type: "rahul/increment"
+// }
+
+
+// incrementByAmount(34)
+// {
+//  type: "rahul/incrementByAmount",
+//  payload : 34
+// }
+
+
 export  default counterSlice.reducer;
 
+
+export const thunkIncrement = (potato)=>{
+    setTimeout(()=>{
+        potato(increment())
+    },3000)
+}
+
+export const thunkIncrementByValue = (value) =>{
+    return (dispatch)=>{
+        // {
+        //  type: "rahul/incrementByAmount"
+        //  type: value
+        // }
+       setTimeout(incrementByAmount(value),1000);
+    }
+};
+
+
+// 1
+// we need a function that returns a function 
+
+
+// the returned function should be a thunk
+
+// thunk (dispatcher) => {
+//   wait 
+//  dispatch
+//
+// }
 
 //
 // increment() {
